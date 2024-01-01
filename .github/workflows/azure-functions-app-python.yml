@@ -20,7 +20,11 @@ name: Deploy Python project to Azure Function App
 
 on:
   schedule:
-    - cron: '30 17 * * *'
+    - cron: '15 17 * * *'  # Run every day at 11:15 PM IST
+  push:
+    branches:
+      - main
+
 
 env:
   AZURE_FUNCTIONAPP_NAME: 'dailycommit'   # set this to your function app name on Azure
@@ -52,7 +56,7 @@ jobs:
         pushd './${{ env.AZURE_FUNCTIONAPP_PACKAGE_PATH }}'
         python -m pip install --upgrade pip
         pip install -r requirements.txt --target=".python_packages/lib/site-packages"
-        script.py ${{ secrets.GH_TOKEN }}
+        python script.py ${{ secrets.GH_TOKEN }}
         popd
   
       
