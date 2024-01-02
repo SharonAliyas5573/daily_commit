@@ -20,10 +20,8 @@ name: Deploy Python project to Azure Function App
 
 on:
   schedule:
-    - cron: '15 17 * * *'  # Run every day at 11:15 PM IST
-  push:
-    branches:
-      - trigger
+    - cron: 30 23 * * *
+  
 
 
 env:
