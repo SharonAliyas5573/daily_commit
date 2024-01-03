@@ -2,10 +2,10 @@ name: run Daily commit script
 
 on:
   schedule:
-    - cron: '* * * * *'
-  push:
-    branches:
-        - main
+    - cron: '*/5 * * * *'
+  # push:
+  #   branches:
+  #       - main
 
 jobs:
   build:
